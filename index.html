@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACCURIENT | Accuracy. Integrity. Delivery.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neo-black': '#0a0a0a',
+                        'neo-white': '#ffffff',
+                        'neo-green': '#ccff00', /* Neon highlighter green for the 'playful' aspect */
+                    },
+                    fontFamily: {
+                        'sans': ['Space Grotesk', 'sans-serif'],
+                        'mono': ['Space Mono', 'monospace'],
+                    },
+                    boxShadow: {
+                        'neo': '5px 5px 0px 0px #0a0a0a',
+                        'neo-hover': '2px 2px 0px 0px #0a0a0a',
+                        'neo-lg': '8px 8px 0px 0px #0a0a0a',
+                    },
+                    animation: {
+                        'flash': 'flash 1s infinite',
+                    },
+                    keyframes: {
+                        flash: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #0a0a0a;
+            overflow-x: hidden;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffffff;
+            border-left: 2px solid #000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #000;
+            border: 2px solid #000;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ccff00;
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Brutalist grid background pattern */
+        .bg-grid {
+            background-image: linear-gradient(#0a0a0a 1px, transparent 1px),
+            linear-gradient(90deg, #0a0a0a 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center;
+            opacity: 0.05;
+        }
+    </style>
+</head>
+<body class="relative">
+
+    <!-- Background Grid --><div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+
+    <!-- Navigation --><nav class="fixed w-full z-50 bg-neo-white border-b-4 border-neo-black top-0 left-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo Area --><div class="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
+                    <div class="w-12 h-12 bg-neo-black rounded-lg flex items-center justify-center transform transition-transform group-hover:rotate-12 border-2 border-neo-black shadow-neo">
+                        <!-- SVG Recreation of the Logo --><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" fill="white"/>
+                            <path d="M14 2V8H20" fill="#ccff00"/>
+                            <path d="M16 13H8" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M16 17H8" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M10 9H8" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <span class="font-bold text-2xl tracking-tighter italic border-b-4 border-transparent hover:border-neo-green transition-all">ACCURIENT</span>
+                </div>
+                
+                <!-- Desktop Menu --><div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="font-mono font-bold hover:bg-neo-green hover:px-2 transition-all duration-200">SERVICES</a>
+                    <a href="#responsibilities" class="font-mono font-bold hover:bg-neo-green hover:px-2 transition-all duration-200">RESPONSIBILITIES</a>
+                    <a href="#contact" class="px-6 py-2 bg-neo-black text-white font-bold border-2 border-neo-black shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-hover transition-all">
+                        GET QUOTE
+                    </a>
+                </div>
+
+                <!-- Mobile menu button --><div class="md:hidden flex items-center">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-neo-black hover:text-gray-700 focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="3" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu --><div id="mobile-menu" class="hidden md:hidden border-t-2 border-neo-black bg-white">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#services" class="block px-3 py-2 text-base font-bold font-mono hover:bg-neo-green">SERVICES</a>
+                <a href="#responsibilities" class="block px-3 py-2 text-base font-bold font-mono hover:bg-neo-green">RESPONSIBILITIES</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-bold font-mono bg-neo-black text-white mt-4 text-center">GET QUOTE</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section --><main class="pt-20 z-10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="inline-block bg-neo-green px-4 py-1 border-2 border-neo-black shadow-neo transform -rotate-2 font-mono font-bold text-sm">
+                        BRAND FOUNDATION EST. 2025
+                    </div>
+                    <h1 class="text-6xl md:text-8xl font-bold leading-[0.9] tracking-tighter">
+                        ACCURACY.<br>
+                        <span class="text-stroke text-transparent bg-clip-text" style="-webkit-text-stroke: 3px black;">INTEGRITY.</span><br>
+                        DELIVERY.
+                    </h1>
+                    <p class="text-xl font-mono border-l-4 border-neo-black pl-6 py-2 max-w-lg">
+                        We don't just estimate costs; we engineer value. The ultimate Quantity Surveying & Construction Management partner.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="#contact" class="px-8 py-4 bg-neo-black text-white text-xl font-bold border-2 border-neo-black shadow-neo hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none transition-all text-center">
+                            START PROJECT
+                        </a>
+                        <a href="#services" class="px-8 py-4 bg-white text-neo-black text-xl font-bold border-2 border-neo-black shadow-neo hover:bg-neo-green hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none transition-all text-center">
+                            LEARN MORE
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Abstract "Blueprint" Graphic --><div class="relative hidden lg:block h-full min-h-[500px] border-4 border-neo-black bg-white shadow-neo-lg p-8">
+                    <!-- Decorative Elements --><div class="absolute top-4 right-4 w-8 h-8 bg-neo-black rounded-full animate-bounce"></div>
+                    <div class="absolute bottom-8 left-8 w-16 h-16 border-4 border-neo-green bg-transparent rotate-45"></div>
+                    
+                    <div class="h-full w-full border-2 border-dashed border-gray-300 grid grid-cols-2 gap-4 p-4">
+                        <div class="bg-neo-black text-white p-4 flex items-center justify-center font-mono text-4xl font-bold">$$$</div>
+                        <div class="bg-neo-green border-2 border-neo-black p-4 flex items-center justify-center font-mono text-4xl font-bold animate-pulse">QS</div>
+                        <div class="border-4 border-neo-black p-4 flex items-center justify-center">
+                             <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                        </div>
+                        <div class="bg-gray-200 p-4 flex flex-col justify-end">
+                            <div class="h-4 bg-neo-black w-full mb-2"></div>
+                            <div class="h-4 bg-neo-black w-3/4 mb-2"></div>
+                            <div class="h-4 bg-neo-black w-1/2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Infinite Scroll Banner --><div class="bg-neo-black text-white py-4 border-y-4 border-neo-black overflow-hidden transform -rotate-1 origin-left scale-105 z-20 relative">
+        <div class="marquee-container">
+            <div class="marquee-content font-mono font-bold text-2xl">
+                QUANTITY SURVEYING • COST ESTIMATION • BUDGETING • EXECUTION • PROJECT COORDINATION • TENDERING • BOQ PREPARATION • BILLING • QUANTITY SURVEYING • COST ESTIMATION • BUDGETING • EXECUTION •
+            </div>
+        </div>
+    </div>
+
+    <!-- Roles Section --><section id="services" class="py-20 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-bold mb-16 border-b-8 border-neo-black inline-block">OUR EXPERTISE</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service Cards --><div class="group bg-white border-4 border-neo-black p-6 shadow-neo hover:shadow-neo-lg hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-12 h-12 bg-neo-green border-2 border-neo-black mb-4 flex items-center justify-center font-bold text-xl group-hover:rotate-45 transition-transform">01</div>
+                    <h3 class="text-2xl font-bold mb-3 uppercase">Quantity Surveying</h3>
+                    <p class="font-mono text-sm leading-relaxed">Precision in measurement. We count every brick and beam.</p>
+                </div>
+
+                <div class="group bg-white border-4 border-neo-black p-6 shadow-neo hover:shadow-neo-lg hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-12 h-12 bg-neo-black text-white mb-4 flex items-center justify-center font-bold text-xl group-hover:rotate-45 transition-transform">02</div>
+                    <h3 class="text-2xl font-bold mb-3 uppercase">Cost Control</h3>
+                    <p class="font-mono text-sm leading-relaxed">Value engineering and budgeting to keep your wallet happy.</p>
+                </div>
+
+                <div class="group bg-white border-4 border-neo-black p-6 shadow-neo hover:shadow-neo-lg hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-12 h-12 bg-neo-green border-2 border-neo-black mb-4 flex items-center justify-center font-bold text-xl group-hover:rotate-45 transition-transform">03</div>
+                    <h3 class="text-2xl font-bold mb-3 uppercase">Execution</h3>
+                    <p class="font-mono text-sm leading-relaxed">Boots on the ground. We manage construction with iron-clad standards.</p>
+                </div>
+
+                <div class="group bg-white border-4 border-neo-black p-6 shadow-neo hover:shadow-neo-lg hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-12 h-12 bg-neo-black text-white mb-4 flex items-center justify-center font-bold text-xl group-hover:rotate-45 transition-transform">04</div>
+                    <h3 class="text-2xl font-bold mb-3 uppercase">Tendering</h3>
+                    <p class="font-mono text-sm leading-relaxed">Contract support, BOQ prep, and rigorous verification.</p>
+                </div>
+                 <div class="group bg-white border-4 border-neo-black p-6 shadow-neo hover:shadow-neo-lg hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-12 h-12 bg-neo-green border-2 border-neo-black mb-4 flex items-center justify-center font-bold text-xl group-hover:rotate-45 transition-transform">05</div>
+                    <h3 class="text-2xl font-bold mb-3 uppercase">Billing</h3>
+                    <p class="font-mono text-sm leading-relaxed">Client & Contractor billing verification. No hidden costs.</p>
+                </div>
+                 <div class="group bg-white border-4 border-neo-black p-6 shadow-neo hover:shadow-neo-lg hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-12 h-12 bg-neo-black text-white mb-4 flex items-center justify-center font-bold text-xl group-hover:rotate-45 transition-transform">06</div>
+                    <h3 class="text-2xl font-bold mb-3 uppercase">Materials</h3>
+                    <p class="font-mono text-sm leading-relaxed">BBS, Reinforcement estimation, and material quantity control.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Responsibilities Split Section --><section id="responsibilities" class="py-20 bg-neo-green border-y-4 border-neo-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold bg-white inline-block px-4 py-2 border-4 border-neo-black shadow-neo transform -rotate-1">
+                    HOW WE OPERATE
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Left Card: QS --><div class="bg-white border-4 border-neo-black shadow-neo-lg p-8 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-neo-black text-white px-4 py-2 font-mono font-bold text-sm">QS & COST MGMT</div>
+                    <h3 class="text-3xl font-bold mb-6 mt-4">THE CALCULATORS</h3>
+                    <ul class="space-y-4 font-mono">
+                        <li class="flex items-start">
+                            <span class="mr-3 text-2xl leading-none font-bold">»</span>
+                            Prepare cost estimates, BOQs, rate analyses
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3 text-2xl leading-none font-bold">»</span>
+                            Control project budgets & prevent overruns
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3 text-2xl leading-none font-bold">»</span>
+                            Validate contractor bills, quantities & scope
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3 text-2xl leading-none font-bold">»</span>
+                            Optimize designs via value engineering
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3 text-2xl leading-none font-bold">»</span>
+                            Forecast risks & cash flow projections
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Right Card: Construction --><div class="bg-neo-black text-white border-4 border-white shadow-neo-lg p-8 relative overflow-hidden group">
+                     <div class="absolute top-0 right-0 bg-white text-neo-black px-4 py-2 font-mono font-bold text-sm">CONSTRUCTION</div>
+                    <h3 class="text-3xl font-bold mb-6 mt-4 text-neo-green">THE BUILDERS</h3>
+                    <ul class="space-y-4 font-mono">
+                        <li class="flex items-start">
+                            <span class="mr-3 text-neo-green text-2xl leading-none font-bold">»</span>
+                            Deliver civil works with quality & safety
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3 text-neo-green text-2xl leading-none font-bold">»</span>
+                            Manage workforce, timelines & material flow
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3 text-neo-green text-2xl leading-none font-bold">»</span>
+                            Implement IS codes & engineering standards
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3 text-neo-green text-2xl leading-none font-bold">»</span>
+                            Ensure structural accuracy
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3 text-neo-green text-2xl leading-none font-bold">»</span>
+                            End-to-end project management
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Footer --><footer id="contact" class="bg-white pt-20 pb-10">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-6xl font-bold mb-8">READY TO BUILD?</h2>
+            <div class="bg-neo-black p-8 border-4 border-neo-black shadow-neo-lg transform rotate-1 transition-transform hover:rotate-0">
+                <p class="text-white font-mono mb-8 text-lg">Contact Accurient for precision that pays off.</p>
+                <form class="space-y-4" onsubmit="event.preventDefault(); alert('Message sent to Accurient team!');">
+                    <input type="email" placeholder="ENTER YOUR EMAIL" class="w-full p-4 bg-white border-4 border-neo-green font-mono text-neo-black placeholder-gray-500 focus:outline-none focus:bg-neo-green focus:border-white transition-colors">
+                    <button type="submit" class="w-full p-4 bg-neo-green text-neo-black font-bold text-xl border-4 border-white hover:bg-white hover:text-neo-black hover:border-neo-green transition-all uppercase">
+                        Get Your Estimate
+                    </button>
+                </form>
+            </div>
+            
+            <div class="mt-20 border-t-4 border-neo-black pt-8 flex flex-col md:flex-row justify-between items-center font-mono text-sm">
+                <p>&copy; 2025 ACCURIENT. All rights reserved.</p>
+                <div class="mt-4 md:mt-0 flex space-x-4">
+                    <a href="#" class="hover:underline">LINKEDIN</a>
+                    <a href="#" class="hover:underline">INSTAGRAM</a>
+                    <a href="#" class="hover:underline">TWITTER</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JS elements --><script>
+        // Simple script to add random slight rotation to role cards on load for 'messy' brutalist look
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('#services .group');
+            cards.forEach(card => {
+                const rotation = Math.random() * 2 - 1; // Random number between -1 and 1
+                card.style.transform = `rotate(${rotation}deg)`;
+                
+                card.addEventListener('mouseenter', () => {
+                     card.style.transform = `rotate(0deg) translateY(-8px)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                     card.style.transform = `rotate(${rotation}deg)`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
